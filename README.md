@@ -1,6 +1,5 @@
 #jobseeker 
 
-## this is a test for Zommit company
 
 ## Project setup
 ```
