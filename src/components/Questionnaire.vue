@@ -9,6 +9,7 @@
         <v-select
           v-model="userInfo.jobType"
           :items="jobTypes"
+          :rules="[rules.required]"
           label="متقاضی کدام یک از مشاغل زیر هستید"
           ></v-select>
       </v-col>
@@ -21,6 +22,7 @@
           >
           <v-text-field
             v-model="userInfo.firstName"
+          :rules="[rules.required]"
           label="نام"
           ></v-text-field>
         </v-col>
@@ -31,6 +33,7 @@
           >
           <v-text-field
             v-model="userInfo.lastName"
+          :rules="[rules.required]"
           label="نام خانوادگی"
           ></v-text-field>
         </v-col>
@@ -41,6 +44,7 @@
           >
           <v-text-field
             v-model="userInfo.nationalCode"
+          :rules="[rules.required]"
           label="کد ملی"
           ></v-text-field>
         </v-col>
@@ -53,6 +57,7 @@
           >
           <v-select
           v-model="userInfo.birthProvince"
+          :rules="[rules.required]"
           :items="provinces"
           label="استان محل تولد"
           ></v-select>
@@ -64,6 +69,7 @@
           >
           <v-select
           v-model="userInfo.maritalStatus"
+          :rules="[rules.required]"
           :items="maritalStatuses"
           label="وضعیت تاهل"
           ></v-select>
@@ -75,6 +81,7 @@
           >
           <v-select
           v-model="userInfo.sex"
+          :rules="[rules.required]"
           :items="gender"
           label="جنسیت"
           ></v-select>
@@ -86,6 +93,7 @@
           >
           <v-text-field
             v-model="userInfo.phoneNumber"
+          :rules="[rules.required]"
           label="شماره تلفن همراه"
           ></v-text-field>
         </v-col>
@@ -98,6 +106,7 @@
           >
           <v-select
           v-model="userInfo.addressProvince"
+          :rules="[rules.required]"
           :items="provinces"
           label="استان محل سکونت"
           ></v-select>
@@ -109,6 +118,7 @@
           >
           <v-text-field
             v-model="userInfo.city"
+          :rules="[rules.required]"
           label="شهر محل سکونت"
           ></v-text-field>
         </v-col>
@@ -119,6 +129,7 @@
           >
           <v-text-field
             v-model="userInfo.address"
+          :rules="[rules.required]"
           label="آدرس"
           ></v-text-field>
         </v-col>
@@ -131,6 +142,7 @@
           >
           <v-select
           v-model="userInfo.weight"
+          :rules="[rules.required]"
           :items="weights"
           label="وزن"
           ></v-select>
@@ -142,6 +154,7 @@
           >
           <v-select
           v-model="userInfo.tall"
+          :rules="[rules.required]"
           :items="talls"
           label="قد"
           ></v-select>
@@ -154,6 +167,7 @@
           <v-select
           v-model="userInfo.age"
           :items="ages"
+          :rules="[rules.required]"
           label="سن"
           ></v-select>
         </v-col>
@@ -164,6 +178,7 @@
           >
           <v-select
           v-model="userInfo.education"
+          :rules="[rules.required]"
           :items="educations"
           label="تحصیلات"
           ></v-select>
@@ -177,6 +192,7 @@
           >
           <v-select
           v-model="userInfo.eyeEarStatus"
+          :rules="[rules.required]"
           :items="eyeEarStates"
           label="وضعیت بینایی و شنوایی"
           ></v-select>
@@ -188,6 +204,7 @@
           >
           <v-select
           v-model="userInfo.sickness"
+          :rules="[rules.required]"
           :items="yesOrNo"
           label="آیا بیماری خاصی دارید؟"
           ></v-select>
@@ -199,6 +216,7 @@
           >
           <v-select
           v-model="userInfo.smocking"
+          :rules="[rules.required]"
           :items="yesOrNo"
           label="آیا سیگار و دخانیات مصرف می کنید؟"
           ></v-select>
@@ -212,6 +230,7 @@
           >
           <v-select
           v-model="userInfo.working"
+          :rules="[rules.required]"
           :items="works"
           label="وضعیت اشتغال در حال حاضر"
           ></v-select>
@@ -223,6 +242,7 @@
           >
           <v-select
           v-model="userInfo.expertField"
+          :rules="[rules.required]"
           :items="experinceFields"
           label="در چه زمینه ای تخصص دارید"
           ></v-select>
@@ -234,6 +254,7 @@
           >
           <v-select
           v-model="userInfo.englishLevel"
+          :rules="[rules.required]"
           :items="englishLevels"
           label="سطح آشنایی به زبان انگلیسی"
           ></v-select>
@@ -247,6 +268,7 @@
           >
           <v-select
           v-model="userInfo.experience"
+          :rules="[rules.required]"
           :items="yesOrNo"
           label="آیا سابقه کار دارید؟"
           ></v-select>
@@ -258,6 +280,7 @@
           >
           <v-select
           v-model="userInfo.arresting"
+          :rules="[rules.required]"
           :items="yesOrNo"
           label="آیا سابقه دستگیری یا محکومیت کیفری دارید؟"
           ></v-select>
@@ -269,6 +292,7 @@
           >
           <v-select
           v-model="userInfo.sponser"
+          :rules="[rules.required]"
           :items="yesOrNo"
           label="بابت تضمین عملکرد خود حداقل یک نفر ضامن معتبر دارید؟"
           ></v-select>
@@ -301,6 +325,9 @@ export default {
   data() {
     return {
       isLoading: false,
+      rules: {
+        required: value => !!value || 'این فیلد اجباری است',
+      },
       userInfo: {
         firstName: null,
         lastName: null,
@@ -466,21 +493,31 @@ export default {
       ]
     }
   },
+  computed: {
+    isValid() {
+      return Object.keys(this.userInfo).filter(key => this.userInfo[key] === null ||
+        this.userInfo[key] === undefined || this.userInfo[key] === "").length == 0
+    }
+  },
   methods: {
     makePdf() {
-      this.isLoading = true
-      console.log(this.userInfo)
-      fetch('https://webapi.ghadergostaran.com/pdf', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(this.userInfo)
-      })
-        .then(response => { response.json()
-          this.isLoading = false
-          alert('اطلاعات شما ارسال شد')
+      if (!this.isValid) {
+        alert('لطفا تمام فیلد ها را  پر کنید')
+      } else {
+        this.isLoading = true
+        console.log(this.userInfo)
+        fetch('https://webapi.ghadergostaran.com/pdf', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(this.userInfo)
         })
+          .then(response => { response.json()
+            this.isLoading = false
+            alert('اطلاعات شما ارسال شد')
+          })
+      }
     }
   }
 }
