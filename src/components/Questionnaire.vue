@@ -281,6 +281,7 @@
           sm="12"
           >
           <v-btn
+            :loading="isLoading"
             class="mx-auto"
             color="primary"
             elevation="3"
@@ -299,6 +300,7 @@ export default {
   name: 'Questionnaire',
   data() {
     return {
+      isLoading: false,
       userInfo: {
         firstName: null,
         lastName: null,
@@ -466,7 +468,19 @@ export default {
   },
   methods: {
     makePdf() {
+      this.isLoading = true
       console.log(this.userInfo)
+      fetch('https://webapi.ghadergostaran.com/pdf', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(this.userInfo)
+      })
+        .then(response => { response.json()
+          this.isLoading = false
+          alert('اطلاعات شما ارسال شد')
+        })
     }
   }
 }
