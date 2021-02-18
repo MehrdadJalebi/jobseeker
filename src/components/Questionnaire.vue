@@ -340,6 +340,12 @@
           </v-btn>
         </v-col>
     </v-row>
+    <v-snackbar
+      :timeout="2000"
+      v-model="snackbar"
+    >
+      {{ message }}
+    </v-snackbar>
   </v-container>
 </template>
 
@@ -349,6 +355,8 @@ export default {
   data() {
     return {
       isLoading: false,
+      message: null,
+      snackbar: false,
       rules: {
         required: value => !!value || 'این فیلد اجباری است',
       },
@@ -491,23 +499,18 @@ export default {
         'کارمند'
       ],
       experinceFields: [
-        'تخصص ندارم',
-        'کارگری',
+        'باغبانی',
+        'پرستاری',
+        'بهیاری',
+        'کمک بهیاری',
+        'فروش و بازاریابی',
         'امور اداری و کارگزینی',
         'امور مالی و حسابداری',
-        'ترابری . حمل بار',
-        'نگهبانی و حراست',
-        'بهداشت و ایمنی کار',
         'تاسیسات و امور فنی',
-        'امور بازرگانی و فروش کالا',
+        'نگهبانی و حراست',
         'الکترونیک و کامپیوتر',
-        'امور حقوقی',
-        'خدامت عمومی',
-        'کارهای هنری',
+        'کارگری',
         'عمرانی و ساخت و ساز',
-        'کشاورزی و دام و طیور',
-        'فرهنگی',
-        'ورزشی',
         'سایر موارد'
       ],
       englishLevels: [
@@ -526,7 +529,8 @@ export default {
   methods: {
     makePdf() {
       if (!this.isValid) {
-        alert('لطفا تمام فیلد ها را  پر کنید')
+        this.message = 'لطفا تمام فیلد ها را  پر کنید'
+        this.snackbar = true
       } else {
         this.isLoading = true
         console.log(this.userInfo)
@@ -539,7 +543,8 @@ export default {
         })
           .then(response => { response.json()
             this.isLoading = false
-            alert('اطلاعات شما ارسال شد')
+            this.message = 'اطلاعات شما ارسال شد'
+            this.snackbar = true
           })
       }
     }
