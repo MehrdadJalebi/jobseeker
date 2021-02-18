@@ -7,6 +7,7 @@
         sm="6"
         >
         <v-select
+          outlined
           v-model="userInfo.jobType"
           :items="jobTypes"
           :rules="[rules.required]"
@@ -21,6 +22,7 @@
           sm="4"
           >
           <v-text-field
+          outlined
             v-model="userInfo.firstName"
           :rules="[rules.required]"
           label="نام"
@@ -32,6 +34,7 @@
           sm="4"
           >
           <v-text-field
+          outlined
             v-model="userInfo.lastName"
           :rules="[rules.required]"
           label="نام خانوادگی"
@@ -43,6 +46,7 @@
           sm="4"
           >
           <v-text-field
+          outlined
             v-model="userInfo.nationalCode"
           :rules="[rules.required]"
           label="کد ملی"
@@ -56,6 +60,7 @@
           sm="3"
           >
           <v-select
+          outlined
           v-model="userInfo.birthProvince"
           :rules="[rules.required]"
           :items="provinces"
@@ -68,6 +73,7 @@
           sm="3"
           >
           <v-select
+          outlined
           v-model="userInfo.maritalStatus"
           :rules="[rules.required]"
           :items="maritalStatuses"
@@ -80,6 +86,7 @@
           sm="3"
           >
           <v-select
+          outlined
           v-model="userInfo.sex"
           :rules="[rules.required]"
           :items="gender"
@@ -92,6 +99,7 @@
           sm="3"
           >
           <v-text-field
+          outlined
             v-model="userInfo.phoneNumber"
           :rules="[rules.required]"
           label="شماره تلفن همراه"
@@ -105,6 +113,7 @@
           sm="3"
           >
           <v-select
+          outlined
           v-model="userInfo.addressProvince"
           :rules="[rules.required]"
           :items="provinces"
@@ -117,6 +126,7 @@
           sm="3"
           >
           <v-text-field
+          outlined
             v-model="userInfo.city"
           :rules="[rules.required]"
           label="شهر محل سکونت"
@@ -128,6 +138,7 @@
           sm="6"
           >
           <v-text-field
+          outlined
             v-model="userInfo.address"
           :rules="[rules.required]"
           label="آدرس"
@@ -141,6 +152,7 @@
           sm="3"
           >
           <v-select
+          outlined
           v-model="userInfo.weight"
           :rules="[rules.required]"
           :items="weights"
@@ -153,6 +165,7 @@
           sm="3"
           >
           <v-select
+          outlined
           v-model="userInfo.tall"
           :rules="[rules.required]"
           :items="talls"
@@ -165,6 +178,7 @@
           sm="3"
           >
           <v-select
+          outlined
           v-model="userInfo.age"
           :items="ages"
           :rules="[rules.required]"
@@ -177,6 +191,7 @@
           sm="3"
           >
           <v-select
+          outlined
           v-model="userInfo.education"
           :rules="[rules.required]"
           :items="educations"
@@ -191,6 +206,7 @@
           sm="4"
           >
           <v-select
+          outlined
           v-model="userInfo.eyeEarStatus"
           :rules="[rules.required]"
           :items="eyeEarStates"
@@ -203,6 +219,7 @@
           sm="4"
           >
           <v-select
+          outlined
           v-model="userInfo.sickness"
           :rules="[rules.required]"
           :items="yesOrNo"
@@ -215,6 +232,7 @@
           sm="4"
           >
           <v-select
+          outlined
           v-model="userInfo.smocking"
           :rules="[rules.required]"
           :items="yesOrNo"
@@ -229,6 +247,7 @@
           sm="4"
           >
           <v-select
+          outlined
           v-model="userInfo.working"
           :rules="[rules.required]"
           :items="works"
@@ -241,6 +260,7 @@
           sm="4"
           >
           <v-select
+          outlined
           v-model="userInfo.expertField"
           :rules="[rules.required]"
           :items="experinceFields"
@@ -253,6 +273,7 @@
           sm="4"
           >
           <v-select
+          outlined
           v-model="userInfo.englishLevel"
           :rules="[rules.required]"
           :items="englishLevels"
@@ -267,6 +288,7 @@
           sm="2"
           >
           <v-select
+          outlined
           v-model="userInfo.experience"
           :rules="[rules.required]"
           :items="yesOrNo"
@@ -279,6 +301,7 @@
           sm="4"
           >
           <v-select
+          outlined
           v-model="userInfo.arresting"
           :rules="[rules.required]"
           :items="yesOrNo"
@@ -291,6 +314,7 @@
           sm="6"
           >
           <v-select
+          outlined
           v-model="userInfo.sponser"
           :rules="[rules.required]"
           :items="yesOrNo"
