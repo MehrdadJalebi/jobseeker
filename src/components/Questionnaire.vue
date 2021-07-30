@@ -149,7 +149,7 @@
         <v-col
           class="d-flex"
           cols="12"
-          sm="3"
+          sm="4"
           >
           <v-select
           outlined
@@ -162,7 +162,7 @@
         <v-col
           class="d-flex"
           cols="12"
-          sm="3"
+          sm="4"
           >
           <v-select
           outlined
@@ -175,7 +175,7 @@
         <v-col
           class="d-flex"
           cols="12"
-          sm="3"
+          sm="4"
           >
           <v-select
           outlined
@@ -185,6 +185,8 @@
           label="سن"
           ></v-select>
         </v-col>
+    </v-row>
+    <v-row align="center">
         <v-col
           class="d-flex"
           cols="12"
@@ -196,6 +198,45 @@
           :rules="[rules.required]"
           :items="educations"
           label="تحصیلات"
+          ></v-select>
+        </v-col>
+        <v-col
+          class="d-flex"
+          cols="12"
+          sm="3"
+          >
+          <v-select
+          outlined
+          v-model="userInfo.study"
+          :rules="[rules.required]"
+          :items="studies"
+          label="رشته تحصیلی"
+          ></v-select>
+        </v-col>
+        <v-col
+          class="d-flex"
+          cols="12"
+          sm="3"
+          >
+          <v-select
+          outlined
+          v-model="userInfo.experience"
+          :rules="[rules.required]"
+          :items="yesOrNo"
+          label="آیا سابقه کار دارید؟"
+          ></v-select>
+        </v-col>
+        <v-col
+          class="d-flex"
+          cols="12"
+          sm="3"
+          >
+          <v-select
+          outlined
+          v-model="userInfo.amountexperience"
+          :rules="[rules.required]"
+          :items="amountexperiences"
+          label="میزان سابقه کار"
           ></v-select>
         </v-col>
     </v-row>
@@ -285,20 +326,7 @@
         <v-col
           class="d-flex"
           cols="12"
-          sm="2"
-          >
-          <v-select
-          outlined
-          v-model="userInfo.experience"
-          :rules="[rules.required]"
-          :items="yesOrNo"
-          label="آیا سابقه کار دارید؟"
-          ></v-select>
-        </v-col>
-        <v-col
-          class="d-flex"
-          cols="12"
-          sm="4"
+          sm="6"
           >
           <v-select
           outlined
@@ -376,6 +404,8 @@ export default {
         sickness: null,
         smocking: null,
         education: null,
+        study: null,
+        amountexperience: null,
         working: null,
         expertField: null,
         englishLevel: null,
@@ -399,6 +429,7 @@ export default {
         'کارگر تولید',
         'کارگر واحد بسته بندی',
         'حسابدار',
+        'خدماتی',
         'نیروی نگهبان',
         'کارگر خدمات',
         'تکنسین مکانیک',
@@ -490,6 +521,29 @@ export default {
         'کارشناسی ارشد',
         'دکترا'
       ],
+      studies: [
+        'حسابداری',
+        'مدیریت',
+        'پزشکی',
+        'پرستاری',
+        'علوم آزمایشگاهی',
+        'مهندسی برق',
+        'مهندسی کامپیوتر',
+        'مهندسی مکانیک',
+        'مهندسی عمران',
+        'مهندسی معماری',
+        'مهندسی شیمی',
+        'موارد دیگر'
+      ],
+      amountexperiences: [
+        '1 الی 3 سال',
+        '3 الی 6 سال',
+        '6 الی 10 سال',
+        '10 الی 15 سال',
+        '15 الی 20 سال',
+        'بیش از 20 سال',
+        'سابقه کار ندارم'
+      ],
       works: [
         'کارمند پاره وقت',
         'مغازه دار',
@@ -499,6 +553,7 @@ export default {
         'کارمند'
       ],
       experinceFields: [
+        'خدماتی',
         'باغبانی',
         'پرستاری',
         'بهیاری',
